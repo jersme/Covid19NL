@@ -2,6 +2,8 @@
 # Covid19NL
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/jersme/Covid19NL.svg?branch=master)](https://travis-ci.org/jersme/Covid19NL)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of Covid19NL is to ...

@@ -72,3 +72,32 @@ filterTown <- function(data, town) {
  return(df)
 
 }
+
+#' Check if the data frame is according the expected package
+#' specification.
+#'
+#' @param data The data frame to be checked
+#'
+#' @return TRUE for a correct data frame and FALSE for a
+#' wrong data frame.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' checkDataFrame()
+#' }
+checkDataFrame <- function(data) {
+
+ # Check if columns names are in place
+ names_check <- names(data) == c("city", "report_date", "cases" )
+ names_check <- all(names_check)
+
+ # Check of cases variables is numeric
+ cases_check <- is.numeric(data$cases)
+
+ # Combine all test
+ test_result <- all(c(names_check, cases_check))
+
+ return(test_result)
+
+}
