@@ -1,13 +1,12 @@
 Package: Covid19NL
-Title: What the Package Does (One Line, Title Case)
+Title: Covid 19 outbreak in The Netherlands plots
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Jeroen",
+           family = "Smeets",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "jersme@gmail.com")
+Description: Plots the information about the Covid 19 plots in The Netherlands
+License: CC0
 Encoding: UTF-8
 LazyData: true
