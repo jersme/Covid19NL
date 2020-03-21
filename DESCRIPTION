@@ -12,3 +12,11 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/jersme/Covid19NL
 BugReports: https://github.com/jersme/Covid19NL/issues
+RoxygenNote: 7.0.2
+Imports: 
+    dplyr,
+    magrittr,
+    janitor,
+    reshape2,
+    ggplot2,
+    scales
