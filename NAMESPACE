@@ -3,3 +3,4 @@
 export(checkDataFrame)
 export(filterTown)
 export(loadDataCOVID19NL)
+export(plotCases)
