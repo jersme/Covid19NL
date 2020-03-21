@@ -10,3 +10,5 @@ Description: Plots the information about the Covid 19 plots in The Netherlands
 License: CC0
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/jersme/Covid19NL
+BugReports: https://github.com/jersme/Covid19NL/issues
