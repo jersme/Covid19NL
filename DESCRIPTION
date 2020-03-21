@@ -6,7 +6,7 @@ Authors@R:
            family = "Smeets",
            role = c("aut", "cre"),
            email = "jersme@gmail.com")
-Description: Plots the information about the Covid 19 plots in The Netherlands
+Description: Plots the information about the Covid 19 plots in The Netherlands.
 License: CC0
 Encoding: UTF-8
 LazyData: true
@@ -19,6 +19,9 @@ Imports:
     janitor,
     reshape2,
     ggplot2,
-    scales
+    scales,
+    readr,
+    methods,
+    utils
 Suggests: 
     testthat (>= 2.1.0)

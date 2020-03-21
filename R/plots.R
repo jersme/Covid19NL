@@ -35,27 +35,27 @@ plotCases <- function(data, town, type, trend_line) {
  }
 
  # Create the plot
- plot <- ggplot(df, aes(x = report_date, y = cases)) +
-  scale_x_date(date_breaks = "days" , date_labels = "%d-%m") +
-  scale_y_continuous(breaks = scales::pretty_breaks(10)) +
-  labs(title = l_title,
+ plot <- ggplot2::ggplot(df, ggplot2::aes(x = report_date, y = cases)) +
+  ggplot2::scale_x_date(date_breaks = "days" , date_labels = "%d-%m") +
+  ggplot2::scale_y_continuous(breaks = scales::pretty_breaks(10)) +
+  ggplot2::labs(title = l_title,
        x = "Case report date",
        y = "Reported cases") +
-  theme_linedraw()
+  ggplot2::theme_linedraw()
 
  # Type of plot
  if (type == "column") {
   plot <- plot +
-   geom_col() +
-   geom_text(aes(y = cases + 25, label = cases), position = position_dodge(1), size = 2.8)
+   ggplot2::geom_col() +
+   ggplot2::geom_text(ggplot2::aes(y = cases + 25, label = cases), position = ggplot2::position_dodge(1), size = 2.8)
  } else if (type == "line") {
   plot <- plot +
-   geom_line() +
-   geom_point()
+   ggplot2::geom_line() +
+   ggplot2::geom_point()
  } else if (type == "both") {
   plot <- plot +
-   geom_line() +
-   geom_col(alpha = .7)
+   ggplot2::geom_line() +
+   ggplot2::geom_col(alpha = .7)
  } else {
   stop("Only types column, line or both are valid inputs")
  }
@@ -63,7 +63,7 @@ plotCases <- function(data, town, type, trend_line) {
  # Trend line
  if (trend_line == TRUE) {
   plot <- plot +
-   geom_smooth(se = FALSE)
+   ggplot2::geom_smooth(se = FALSE)
  }
 
  return(list(plot = plot, data = df))
