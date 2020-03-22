@@ -25,6 +25,9 @@ plotCases <- function(data, town, type, trend_line) {
  # Filter data
  df <- filterTown(data = data, town = town)
 
+ # Add daily delta
+ df <- getDailyDelta(data = df, town_selected = methods::hasArg(town))
+
  # Create labels
  base_title <- "Covid 19 cases in"
 
