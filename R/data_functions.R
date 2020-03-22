@@ -101,3 +101,34 @@ checkDataFrame <- function(data) {
  return(test_result)
 
 }
+
+getDailyDelta <- function(data, town_selected) {
+
+ # Summarise data to daily if no town is selected
+ if (town_selected == FALSE) {
+  df <- data %>%
+   dplyr::group_by(report_date) %>%
+   dplyr::summarise(cases = sum(cases, na.rm = TRUE)) %>%
+   dplyr::ungroup()
+ } else if (town_selected == TRUE) {
+  df <- data
+ }
+
+ # Calculate the daily delta case base
+ df <- df %>%
+  dplyr::arrange(report_date) %>%
+  dplyr::mutate(prev_cases = dplyr::lag(cases, 1),
+                delta_cases = cases - prev_cases,
+                delta_cases = ifelse(is.na(delta_cases), 0, delta_cases))
+
+ # Select only required columns
+ if (town_selected == FALSE) {
+  df <- df %>%
+   dplyr::select(report_date, cases, delta_cases)
+ } else if (town_selected == TRUE) {
+  df <- df %>%
+   dplyr::select(city, report_date, cases, delta_cases)
+ }
+
+ return(df)
+}
