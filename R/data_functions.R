@@ -117,7 +117,7 @@ getDailyDelta <- function(data, town_selected) {
  # Calculate the daily delta case base
  df <- df %>%
   dplyr::arrange(report_date) %>%
-  dplyr::mutate(prev_cases = lag(cases, 1),
+  dplyr::mutate(prev_cases = dplyr::lag(cases, 1),
                 delta_cases = cases - prev_cases,
                 delta_cases = ifelse(is.na(delta_cases), 0, delta_cases))
 

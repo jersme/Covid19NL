@@ -4,5 +4,7 @@ utils::globalVariables(
    "city",
    "report_date",
    "value",
-   "variable"
+   "variable",
+   "prev_cases",
+   "delta_cases"
    ))

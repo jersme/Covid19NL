@@ -47,8 +47,8 @@ plotCases <- function(data, town, type, trend_line) {
  if (type == "column") {
   plot <- plot +
    ggplot2::geom_col() +
-   ggplot2::geom_text(aes(y = cases + ((max(df$cases) / 80)), label = paste0("(", delta_cases, ")")), position = position_dodge(1), size = 2.4) +
-   ggplot::geom_text(aes(y = cases + ((max(df$cases) / 40)), label = cases), position = position_dodge(1), size = 2.8)
+   ggplot2::geom_text(ggplot2::aes(y = cases + ((max(df$cases) / 80)), label = paste0("(", delta_cases, ")")), position = ggplot2::position_dodge(1), size = 2.4) +
+   ggplot2::geom_text(ggplot2::aes(y = cases + ((max(df$cases) / 40)), label = cases), position = ggplot2::position_dodge(1), size = 2.8)
  } else if (type == "line") {
   plot <- plot +
    ggplot2::geom_line() +
