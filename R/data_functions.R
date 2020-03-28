@@ -132,3 +132,62 @@ getDailyDelta <- function(data, town_selected) {
 
  return(df)
 }
+
+#' Calculate days since first case
+#'
+#' @param data Data frame with city, report_date and cases
+#' @param cases_threshold TThe number of cases threshold to compare
+#'
+#' @return Data frame to compare days since case.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' daysSinceCase()
+#' }
+daysSinceCase <- function(data, cases_threshold) {
+
+  # Create data with only active cases
+  df <- data %>%
+    dplyr::arrange(report_date) %>%
+    dplyr::filter(cases >= cases_threshold)
+
+  # Add the days
+  df <- df %>%
+    dplyr::mutate(days = c(1:nrow(df)),
+                  case_threshold = cases_threshold)
+
+  # Return the data.frame
+  return(df)
+}
+
+#' Get data to compare two towns by days since case n
+#'
+#' @param data A data frame obtained via the daysSinceCase() function
+#' @param town1 The first municipality
+#' @param town2 The second municipality
+#' @param cases_threshold The number of cases threshold to compare
+#'
+#' @return A data frame with two municipalities
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' compareTrend()
+#' }
+compareTrend <- function(data, town1, town2, cases_threshold) {
+
+  # Get data
+  town1_data <- filterTown(data = data, town = town1)
+  town2_data <- filterTown(data = data, town = town2)
+
+  # Add days from case data
+  town1_data <- daysSinceCase(data = town1_data, cases = cases_threshold)
+  town2_data <- daysSinceCase(data = town2_data, cases = cases_threshold)
+
+  # Combine data
+  df <- dplyr::bind_rows(town1_data, town2_data)
+
+  # Return data frame
+  return(df)
+}

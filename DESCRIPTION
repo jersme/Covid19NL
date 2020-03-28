@@ -22,6 +22,7 @@ Imports:
     scales,
     readr,
     methods,
-    utils
+    utils,
+    toOrdinal
 Suggests: 
     testthat (>= 2.1.0)

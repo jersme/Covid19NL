@@ -2,6 +2,9 @@
 
 export("%>%")
 export(checkDataFrame)
+export(compareCityPlot)
+export(compareTrend)
+export(daysSinceCase)
 export(filterTown)
 export(loadDataCOVID19NL)
 export(plotCases)
