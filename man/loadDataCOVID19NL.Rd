@@ -4,10 +4,19 @@
 \alias{loadDataCOVID19NL}
 \title{Import data from COVID-19-NL Github Repository}
 \usage{
-loadDataCOVID19NL(path)
+loadDataCOVID19NL(
+  fromGitHub = TRUE,
+ 
+    path = "https://raw.githubusercontent.com/ZequnZ/COVID-19-NL/master/data/NL_COVID19_info_city.csv"
+)
 }
 \arguments{
-\item{path}{The path the file `NL_COVID19_info_city.csv`.}
+\item{fromGitHub}{If this parameter is TRUE the data will be loaded
+from Github. If FALSE the a local csv file is expected.}
+
+\item{path}{Mainly to be used with the fromGitHub == FALSE
+option. Point to the file `NL_COVID19_info_city.csv`. Standard path is
+`https://raw.githubusercontent.com/ZequnZ/COVID-19-NL/master/data/NL_COVID19_info_city.csv`}
 }
 \value{
 A data frame grouped with reported cases per municipality and day.
