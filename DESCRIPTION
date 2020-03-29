@@ -23,7 +23,6 @@ Imports:
     readr,
     methods,
     utils,
-    toOrdinal,
-    httr
+    toOrdinal
 Suggests: 
     testthat (>= 2.1.0)
