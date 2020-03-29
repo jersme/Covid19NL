@@ -6,5 +6,6 @@ utils::globalVariables(
    "value",
    "variable",
    "prev_cases",
-   "delta_cases"
+   "delta_cases",
+   "days"
    ))
